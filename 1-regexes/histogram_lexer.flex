@@ -42,6 +42,17 @@ extern "C" int fileno(FILE *stream);
                  return Word; 
                 }
 
+[A-Z]+          { 
+                  fprintf(stderr, "Word : %s\n", yytext); 
+                  
+                  /* TODO: get value out of yytext and into yylval.wordValue */
+                  // FROM TA: In the case of a word, yytext is still a pointer to an array of chars but now the chars need to be concatenated into a string.
+                  //          The std::string() obj class can take an array as input
+                  yylval.wordValue = new std::string(yytext);
+
+                 return Word; 
+                }
+
 \n              { fprintf(stderr, "Newline\n"); }
 
 %%
