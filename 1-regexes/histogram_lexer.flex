@@ -27,7 +27,6 @@ extern "C" int fileno(FILE *stream);
                   // FROM TA: In the case of a number, yytext is a pointer to an array of chars so conversion to double before assignment must take place
                   //          The atof() function takes the string pointer and returns a double in its place comprised of the number in the string pointer
                   yylval.numberValue = atof(yytext);
-
                   return Number; 
                 }
 
